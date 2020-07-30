@@ -1,0 +1,5 @@
+write explicit solver for benney
+
+derive implicit explicit for benney using https://research-information.bris.ac.uk/ws/portalfiles/portal/55958431/stiff_revision2_nored.pdf
+
+do KS from equation derived in writeup following fallingliquidfilms book
