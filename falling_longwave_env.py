@@ -66,7 +66,7 @@ class FlattenLongWaveEnv(gym.Env):
     return observation
 
   def _bump(self, x):
-    return np.piecewise(x, [(x > 0) & (x < self.nozzle_width), x >= self.nozzle_width, x<=0], [lambda x: np.exp(1 - 1/(1-((2*x/self.nozzle_width - 1)**2))), 0, 0])
+    return np.piecewise(x, [(x > 0) & (x < self.nozzle_width), (x >= self.nozzle_width)|(x<=0)], [lambda x: np.exp(1 - 1/(1-((2*x/self.nozzle_width - 1)**2))), 0])
     #return (x>0) * (x<self.nozzle_width) * np.exp(1 - 1/(1-((2*x/self.nozzle_width - 1)**2)))
 
   def step(self, action):
@@ -76,7 +76,7 @@ class FlattenLongWaveEnv(gym.Env):
     if not -1 <= action_sum <= 1:
       # don't update solver, very negative reward, return
       observation = self.last_obs
-      reward = -10 * abs(action_sum)# multiplying makes a gradient so that its easier to learn to make nozzles in bounds.
+      reward = -0.1 * abs(action_sum)# multiplying makes a gradient so that its easier to learn to make nozzles in bounds.
       done = False
       info = {} # TODO: add info?
       return observation, reward, done, info
@@ -97,7 +97,7 @@ class FlattenLongWaveEnv(gym.Env):
     observation, done = self._observe_h()
     self.last_obs = observation
 
-    reward = 1 + self._reward(observation) # add 1 cos it might help who knows
+    reward = 1.0 + self._reward(observation) # add 1 cos it might help who knows
 
     # Optionally we can pass additional info, we are not using that for now
     info = {}
