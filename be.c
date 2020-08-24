@@ -82,7 +82,7 @@ int main () {
     if (i % 100000 == 0) {
       fprintf(stdout, "t = %g\n", t);
     }
-    solve_explicit (h, F, dt);
+    //solve_explicit (h, F, dt);
   }
   fclose(fp);
 }
