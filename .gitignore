@@ -1,3 +1,13 @@
+# output
+out/*
+saved/*
+bin/*
+
+# vscode
+.vscode
+
+# C
+
 # Prerequisites
 *.d
 
@@ -51,13 +61,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# output
-out/*
-saved/*
-bin/*
 
-# vscode
-.vscode
 
 # Python
 # Byte-compiled / optimized / DLL files

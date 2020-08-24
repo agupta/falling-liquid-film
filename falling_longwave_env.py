@@ -14,14 +14,14 @@ class FlattenLongWaveEnv(gym.Env):
   # metadata = {'render.modes': ['console']}
 
 
-  def __init__(self, num_nozzles=8, nozzle_width=7, grid_size=128, scale=1):
+  def __init__(self, num_nozzles=8, nozzle_width=7, grid_size=128, scale=0.1):
     super(FlattenLongWaveEnv, self).__init__()
 
     # Number of nozzles to use for blowing and suction.
     self.num_nozzles = num_nozzles
     self.nozzle_width = nozzle_width
     self.grid_size = grid_size
-    self.scale = 1 # this scales the velocities.
+    self.scale = scale # this scales the velocities.
 
     # TODO: other params, etc.
     self.solver = None
@@ -41,7 +41,7 @@ class FlattenLongWaveEnv(gym.Env):
     self.solver.expect_exact("h >")
     index = self.solver.expect_exact(["F >", "finish!"])
     observation = np.fromstring(self.solver.before, dtype=np.float64, sep=' ')
-    done = (index == 1) # we observe finish! rather than F>
+    done = (index == 1) # we observe finish! rather than F >
     return observation, done
   
   def _reward(self, h):
@@ -74,9 +74,9 @@ class FlattenLongWaveEnv(gym.Env):
 
     # Check whether the last nozzle will be out of bounds 
     if not -1 <= action_sum <= 1:
-      # don't update state, negative reward, return
+      # don't update solver, very negative reward, return
       observation = self.last_obs
-      reward = -100 * abs(action_sum) # multiplying makes a gradient so that its easier to learn to make nozzles in bounds.
+      reward = -10 * abs(action_sum)# multiplying makes a gradient so that its easier to learn to make nozzles in bounds.
       done = False
       info = {} # TODO: add info?
       return observation, reward, done, info
@@ -95,6 +95,7 @@ class FlattenLongWaveEnv(gym.Env):
     self.solver.sendline(F_input)
 
     observation, done = self._observe_h()
+    self.last_obs = observation
 
     reward = self._reward(observation)
 
