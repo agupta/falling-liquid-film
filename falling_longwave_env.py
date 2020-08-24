@@ -60,7 +60,7 @@ class FlattenLongWaveEnv(gym.Env):
     
     if self.solver is not None:
       self.solver.close()
-    self.solver = pexpect.spawn("bin/be_dirty")
+    self.solver = pexpect.spawn("bin/be_dirty_no_log")
     observation, _ = self._observe_h() # assume can't be done already
     self.last_obs = observation
     return observation
