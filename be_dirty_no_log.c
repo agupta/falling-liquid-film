@@ -66,7 +66,7 @@ void output_precomputed(FILE * file) {
 }
 
 int main () {
-  output_precomputed(stderr);
+  output_precomputed(stdout);
   init_grid(128);
   size(width);
   periodic(right);
@@ -86,17 +86,17 @@ int main () {
   
   // int i = 0;
   double t = 0;
-  FILE * fp = fopen("out/explicit.out", "w");
+  //FILE * fp = fopen("out/explicit.out", "w");
 
-  fprintf(stderr, "start!\n");
+  fprintf(stdout, "start!\n");
 
   //for (double t = 0; t <= MAX_TIME; t += dt, i++) {
   for (int i = 0; i <= 100000; t += dt, i++) {
-    if (i % 1000 == 0) { // 100 + 1 slices
-      foreach()
-	      fprintf (fp, "%g %g %g\n", t, x, h[]);
-      fputs ("\n", fp);
-    }
+    // if (i % 1000 == 0) { // 100 + 1 slices
+    //   foreach()
+	  //     fprintf (fp, "%g %g %g\n", t, x, h[]);
+    //   fputs ("\n", fp);
+    // }
     if (i % 10000 == 0) { // 10 + 1 times
       // fprintf(stdout, "t = %g\n", t); // convenience progress
       fputs ("h >", stdout);
@@ -111,9 +111,9 @@ int main () {
     }
     solve_explicit (h, F, dt);
   }
-  fclose(fp);
+  //fclose(fp);
 
-  fprintf(stderr, "finish!\n");
+  fprintf(stdout, "finish!\n");
 
   // TODO: print time. see utils.h
 }

@@ -97,7 +97,7 @@ class FlattenLongWaveEnv(gym.Env):
     observation, done = self._observe_h()
     self.last_obs = observation
 
-    reward = self._reward(observation)
+    reward = 1 + self._reward(observation) # add 1 cos it might help who knows
 
     # Optionally we can pass additional info, we are not using that for now
     info = {}
