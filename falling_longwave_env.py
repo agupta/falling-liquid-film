@@ -76,7 +76,7 @@ class FlattenLongWaveEnv(gym.Env):
     if not -1 <= action_sum <= 1:
       # don't update solver, very negative reward, return
       observation = self.last_obs
-      reward = -0.1 * abs(action_sum)# multiplying makes a gradient so that its easier to learn to make nozzles in bounds.
+      reward = -1.0 * abs(action_sum)# multiplying makes a gradient so that its easier to learn to make nozzles in bounds.
       done = False
       info = {} # TODO: add info?
       return observation, reward, done, info
