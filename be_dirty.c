@@ -97,7 +97,7 @@ int main () {
 	      fprintf (fp, "%g %g %g %g\n", t, x, h[], F[]);
       fputs ("\n", fp);
     }
-    if (i % 100000 == 0) { // 10 + 1 times
+    if (i % 10000 == 0) { // 10 + 1 times
       // fprintf(stdout, "t = %g\n", t); // convenience progress
       fputs ("h >", stdout);
       foreach()
