@@ -91,23 +91,23 @@ int main () {
   fprintf(stderr, "start!\n");
 
   //for (double t = 0; t <= MAX_TIME; t += dt, i++) {
-  for (int i = 0; i <= 100000; t += dt, i++) {
+  for (int i = 0; i <= 1000000; t += dt, i++) {
     if (i % 1000 == 0) { // 100 + 1 slices
       foreach()
-	      fprintf (fp, "%g %g %g\n", t, x, h[]);
+	      fprintf (fp, "%g %g %g %g\n", t, x, h[], F[]);
       fputs ("\n", fp);
     }
-    if (i % 10000 == 0) { // 10 + 1 times
+    if (i % 100000 == 0) { // 10 + 1 times
       // fprintf(stdout, "t = %g\n", t); // convenience progress
       fputs ("h >", stdout);
       foreach()
 	      fprintf (stdout, "%g ", h[]);
       fputs ("\n", stdout);
-      if (i != 100000) { // not the last time
-        fputs("F >", stdout);
-        foreach()
-          scanf("%lf", &F[]);
-      }
+      // if (i != 100000) { // not the last time
+      //   fputs("F >", stdout);
+      //   foreach()
+      //     scanf("%lf", &F[]);
+      // }
     }
     solve_explicit (h, F, dt);
   }
