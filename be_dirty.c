@@ -91,7 +91,7 @@ int main () {
   fprintf(stderr, "start!\n");
 
   //for (double t = 0; t <= MAX_TIME; t += dt, i++) {
-  for (int i = 0; i <= 1000000; t += dt, i++) {
+  for (int i = 0; i <= 100000; t += dt, i++) {
     if (i % 1000 == 0) { // 100 + 1 slices
       foreach()
 	      fprintf (fp, "%g %g %g %g\n", t, x, h[], F[]);
