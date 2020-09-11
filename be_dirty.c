@@ -71,8 +71,9 @@ int main () {
   size(width);
   periodic(right);
   scalar h[], F[];
+  double offset = rand()/(double)RAND_MAX;
   foreach() {
-    h[] = 1. + 1e-2*sin(2.*pi*(x/width + rand()/(double)RAND_MAX));
+    h[] = 1. + 1e-2*sin(2.*pi*(x/width + offset));
     F[] = 0.;
   }
   boundary ({h, F});
@@ -103,11 +104,11 @@ int main () {
       foreach()
 	      fprintf (stdout, "%g ", h[]);
       fputs ("\n", stdout);
-      if (i != 100000) { // not the last time
-        fputs("F >", stdout);
-        foreach()
-          scanf("%lf", &F[]);
-      }
+      // if (i != 100000) { // not the last time
+      //   fputs("F >", stdout);
+      //   foreach()
+      //     scanf("%lf", &F[]);
+      // }
     }
     solve_explicit (h, F, dt);
   }

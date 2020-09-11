@@ -71,8 +71,9 @@ int main () {
   size(width);
   periodic(right);
   scalar h[], F[];
+  double offset = rand()/(double)RAND_MAX;
   foreach() {
-    h[] = 1. + 1e-2*sin(2.*pi*(x/width + rand()/(double)RAND_MAX));
+    h[] = 1. + 1e-2*sin(2.*pi*(x/width + offset));
     F[] = 0.;
   }
   boundary ({h, F});
