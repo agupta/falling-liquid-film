@@ -88,7 +88,7 @@ int main () {
   double t = 0;
   //FILE * fp = fopen("out/explicit.out", "w");
 
-  fprintf(stdout, "start!\n");
+  fprintf(stderr, "start!\n");
 
   //for (double t = 0; t <= MAX_TIME; t += dt, i++) {
   for (int i = 0; i <= 100000; t += dt, i++) {
@@ -113,7 +113,7 @@ int main () {
   }
   //fclose(fp);
 
-  fprintf(stdout, "finish!\n");
+  fprintf(stderr, "finish!\n");
 
   // TODO: print time. see utils.h
 }
