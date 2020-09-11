@@ -72,7 +72,7 @@ int main () {
   periodic(right);
   scalar h[], F[];
   foreach() {
-    h[] = 1. + 1e-2*sin(2.*pi*x/width);
+    h[] = 1. + 1e-2*sin(2.*pi*(x/width + rand()/(double)RAND_MAX));
     F[] = 0.;
   }
   boundary ({h, F});
