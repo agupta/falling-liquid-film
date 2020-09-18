@@ -122,7 +122,7 @@ class FlattenLongWaveEasierEnv(gym.Env):
 
 
   def __init__(self, num_nozzles=8, nozzle_width=7, grid_size=128, scale=0.1):
-    super(FlattenLongWaveEnv, self).__init__()
+    super(FlattenLongWaveEasierEnv, self).__init__()
 
     # Number of nozzles to use for blowing and suction.
     self.num_nozzles = num_nozzles
