@@ -187,7 +187,7 @@ class FlattenLongWaveEasierEnv(gym.Env):
     # # Add the last nozzle to array
     # last_nozzle = -action_sum
     # nozzle_velocities = np.append(action, last_nozzle)
-    alpha = (action + 1)/2 # rescale action to [0,1]
+    alpha = ((action + 1)/2)*80 # rescale action to [0,80]
     # Make the F field and input it
     x = np.arange(128)
     offsets = np.linspace(0, self.grid_size, self.num_nozzles, endpoint=False)
