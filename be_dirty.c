@@ -104,11 +104,11 @@ int main () {
       foreach()
 	      fprintf (stdout, "%g ", h[]);
       fputs ("\n", stdout);
-      // if (i != 100000) { // not the last time
-      //   fputs("F >", stdout);
-      //   foreach()
-      //     scanf("%lf", &F[]);
-      // }
+      if (i != 100000) { // not the last time
+        fputs("F >", stdout);
+        foreach()
+          scanf("%lf", &F[]);
+      }
     }
     solve_explicit (h, F, dt);
   }

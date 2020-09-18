@@ -196,7 +196,7 @@ class FlattenLongWaveEasierEnv(gym.Env):
     #   F += nozzle_v * self.scale * self._bump(x - offset)
 
     for offset in offsets:
-      F += - (self.last_obs[offset] - 1) * alpha * self._bump(x - offset)
+      F += - (self.last_obs[int(offset)] - 1) * alpha * self._bump(x - offset)
 
     F_input = np.array2string(F)[1:-1] # remove square brackets
     self.solver.sendline(F_input)

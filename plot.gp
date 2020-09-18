@@ -12,9 +12,10 @@ stats 'out/explicit.out'
 set xrange [0:64]
 set xtics 0,8,64
 
-#set yrange [0.98:1.02]
+set yrange [0.98:1.02]
 
 set y2tics
+
 
 do for [i=0:STATS_blank-1] {
 plot 'out/explicit.out' every :::i::i u 2:3 w lines, 'out/explicit.out' every :::i::i u 2:4 w lines axes x1y2
