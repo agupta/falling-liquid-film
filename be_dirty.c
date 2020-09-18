@@ -84,7 +84,7 @@ int main () {
   //double dt = 1.6e-5;
 
   double dt = 1e-5;
-  
+
   // int i = 0;
   double t = 0;
   FILE * fp = fopen("out/explicit.out", "w");

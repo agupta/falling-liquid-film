@@ -12,6 +12,8 @@ stats 'out/explicit.out'
 set xrange [0:64]
 set xtics 0,8,64
 
+#set yrange [0.98:1.02]
+
 set y2tics
 
 do for [i=0:STATS_blank-1] {
